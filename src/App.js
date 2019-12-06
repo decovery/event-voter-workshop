@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   return (
     <div>
-      <FeedbackList msg="my custom message" />
+      <FeedbackList msg="my custom message" version="2" />
     </div>
   );
 }
