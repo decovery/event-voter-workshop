@@ -1,13 +1,16 @@
 import React from 'react';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 
 import './FeedbackList.css';
 
-export default function FeedbackList({ msg, version = null }) {
-  const classes = 'Feedback-List Feedback-List-${version}';
+export default function FeedbackList() {
   return (
-    <div className={classes}>
-      <h1>My first components with {msg}</h1>
-      {version && <p>This is v.{version}</p>}
-    </div>
+    <List>
+      <ListItem>
+        <ListItemText primary="Vardas" secondary="informacinis tekstas" />
+      </ListItem>
+    </List>
   );
 }
