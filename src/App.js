@@ -5,6 +5,7 @@ import PageBox from './layout/PageBox';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Dashboard from './components/Dashboard';
 import PageControls from './components/PageControls';
+import AddFeedbackForm from './components/AddFeedbackForm';
 
 import './App.css';
 
@@ -22,6 +23,13 @@ function App() {
       name: 'Aldona',
       datetime: 'YYYY-MM-DD',
       score: -1,
+      text: 'komentaras kaip vertina Aldona'
+    },
+    {
+      id: '03',
+      name: 'Aldona2',
+      datetime: 'YYYY-MM-DD',
+      score: 1,
       text: 'komentaras kaip vertina Aldona'
     }
   ];
@@ -54,6 +62,7 @@ function App() {
         </div>
       </div>
       <PageControls />
+      <AddFeedbackForm />
     </>
   );
 }
