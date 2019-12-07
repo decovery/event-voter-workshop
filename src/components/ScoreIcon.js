@@ -8,8 +8,11 @@ export default function ScoreIcon({ score, onClick }) {
     return null;
   }
   return (
-    <Avatar variant="rounded" style={{ backgroundColor: '#a5d6a7' }}>
-      <ThumbUpIcon />
+    <Avatar
+      variant="rounded"
+      style={{ backgroundColor: score > 0 ? '#a5d6a7' : '#ef9a9a' }}
+    >
+      {score > 0 ? <ThumbUpIcon /> : <ThumbDownIcon />}
     </Avatar>
   );
 }

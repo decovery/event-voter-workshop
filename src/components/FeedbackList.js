@@ -14,7 +14,7 @@ export default function FeedbackList({ feedbackList = [] }) {
       {feedbackList.map(feedback => (
         <ListItem key={feedback.id}>
           <ListItemAvatar>
-            <ScoreIcon />
+            <ScoreIcon score={feedback.score} />
           </ListItemAvatar>
           <ListItemText
             primary={feedback.name}

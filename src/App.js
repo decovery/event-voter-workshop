@@ -16,7 +16,7 @@ function App() {
       id: '02',
       name: 'Aldona',
       datetime: 'YYYY-MM-DD',
-      score: 1,
+      score: -1,
       text: 'komentaras kaip vertina Aldona'
     }
   ];
