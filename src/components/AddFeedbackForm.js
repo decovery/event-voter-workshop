@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -18,6 +18,14 @@ export default function AddFeedbackForm({
   const [name, setName] = useState(initialValues.name || '');
   const [text, setText] = useState(initialValues.text || '');
 
+  const NAME_STORAGE_KEY = 'author_name';
+  useEffect(() => {
+    const name = localStorage.getItem(NAME_STORAGE_KEY);
+    if (name) {
+      setName(name);
+    }
+  }, [setName]);
+
   function handleLikeClick() {
     setScore(1);
   }
@@ -33,6 +41,9 @@ export default function AddFeedbackForm({
       name: name || DEFAULT_NAME,
       text
     });
+    if (name) {
+      localStorage.setItem(NAME_STORAGE_KEY, name);
+    }
   }
 
   function onNameChange(event) {
