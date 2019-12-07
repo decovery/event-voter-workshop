@@ -2,6 +2,7 @@ import React from 'react';
 import FeedbackList from './components/FeedbackList';
 import VideoStream from './components/VideoStream';
 import PageBox from './layout/PageBox';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 import './App.css';
 
@@ -25,17 +26,32 @@ function App() {
   const eventId = 'WUWz6xmSzbk';
 
   return (
-    <div>
-      <PageBox>
-        <FeedbackList feedbackList={feedbackList} />
-      </PageBox>
-      <PageBox>
-        <VideoStream
-          videoUrl={`https://www.youtube.com/embed/${eventId}?controls=0`}
-        />
-      </PageBox>
-      <PageBox>PageBox demo turinys</PageBox>
-    </div>
+    <>
+      <CssBaseline />
+      <div className="main-content">
+        <div className="main-content__left">
+          <PageBox>
+            <FeedbackList feedbackList={feedbackList} />
+          </PageBox>
+        </div>
+
+        <div className="main-content__right">
+          <div className="sub-section">
+            <PageBox>
+              <VideoStream
+                videoUrl={`https://www.youtube.com/embed/${eventId}?controls=0`}
+              />
+            </PageBox>
+          </div>
+
+          <div className="sub-section">
+            <PageBox>
+              <h2>Renginio rezultatai</h2>
+            </PageBox>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
