@@ -15,6 +15,8 @@ export default function AddFeedbackForm({
   initialValues = {}
 }) {
   const [score, setScore] = useState(initialValues.score);
+  const [name, setName] = useState(initialValues.name || '');
+  const [text, setText] = useState(initialValues.text || '');
 
   function handleLikeClick() {
     setScore(1);
@@ -22,6 +24,14 @@ export default function AddFeedbackForm({
 
   function handleDislikeClick() {
     setScore(-1);
+  }
+
+  function onNameChange(event) {
+    setName(event.target.value);
+  }
+
+  function onTextChange(event) {
+    setText(event.target.value);
   }
 
   const likeClicked = score && score > 0;
@@ -53,7 +63,13 @@ export default function AddFeedbackForm({
             <ThumbDownIcon />
           </IconButton>
         </div>
-        <TextField label="Name" fullWidth margin="normal" />
+        <TextField
+          label="Name"
+          fullWidth
+          margin="normal"
+          value={name}
+          onChange={onNameChange}
+        />
         <TextField
           label="Your comments"
           placeholder="Can add multiline text here"
@@ -61,6 +77,8 @@ export default function AddFeedbackForm({
           fullWidth
           margin="normal"
           helperText="comments are optional"
+          value={text}
+          onChange={onTextChange}
         />
       </DialogContent>
       <DialogActions>
