@@ -1,6 +1,7 @@
 import React from 'react';
 import FeedbackList from './components/FeedbackList';
 import VideoStream from './components/VideoStream';
+import PageBox from './layout/PageBox';
 
 import './App.css';
 
@@ -25,10 +26,15 @@ function App() {
 
   return (
     <div>
-      <FeedbackList feedbackList={feedbackList} />
-      <VideoStream
-        videoUrl={`https://www.youtube.com/embed/${eventId}?controls=0`}
-      />
+      <PageBox>
+        <FeedbackList feedbackList={feedbackList} />
+      </PageBox>
+      <PageBox>
+        <VideoStream
+          videoUrl={`https://www.youtube.com/embed/${eventId}?controls=0`}
+        />
+      </PageBox>
+      <PageBox>PageBox demo turinys</PageBox>
     </div>
   );
 }
