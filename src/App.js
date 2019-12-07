@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FeedbackList from './components/FeedbackList';
 import VideoStream from './components/VideoStream';
 import PageBox from './layout/PageBox';
@@ -35,6 +35,16 @@ function App() {
   ];
   const eventId = 'WUWz6xmSzbk';
 
+  const [feedbackFormVisible, setFeedbackFormVisible] = useState(false);
+
+  function hideFeedbackForm() {
+    setFeedbackFormVisible(false);
+  }
+
+  function showFeedbackForm() {
+    setFeedbackFormVisible(true);
+  }
+
   return (
     <>
       <CssBaseline />
@@ -61,8 +71,8 @@ function App() {
           </div>
         </div>
       </div>
-      <PageControls />
-      <AddFeedbackForm />
+      <PageControls buttonAction={showFeedbackForm} />
+      {feedbackFormVisible && <AddFeedbackForm onCancel={hideFeedbackForm} />}
     </>
   );
 }
