@@ -26,6 +26,15 @@ export default function AddFeedbackForm({
     setScore(-1);
   }
 
+  function handleFormSubmit() {
+    const DEFAULT_NAME = 'Anonymous';
+    onSubmit({
+      score,
+      name: name || DEFAULT_NAME,
+      text
+    });
+  }
+
   function onNameChange(event) {
     setName(event.target.value);
   }
@@ -82,8 +91,15 @@ export default function AddFeedbackForm({
         />
       </DialogContent>
       <DialogActions>
-        <Button color="default">Cancel</Button>
-        <Button color="primary" variant="contained">
+        <Button onClick={onCancel} color="default">
+          Cancel
+        </Button>
+        <Button
+          onClick={handleFormSubmit}
+          color="primary"
+          variant="contained"
+          disabled={score == null}
+        >
           Submit
         </Button>
       </DialogActions>
