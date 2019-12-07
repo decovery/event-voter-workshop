@@ -10,7 +10,6 @@ body {
 .main-content__left {
   height: 100%;
   width: 50%;
-  overflow: scroll;
 }
 
 .main-content__right {
@@ -20,7 +19,6 @@ body {
 
 .sub-section {
   width: 100%;
-  overflow: scroll;
 }
 
 /* Responsive */
