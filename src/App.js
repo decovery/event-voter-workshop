@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import FeedbackList from './components/FeedbackList';
 import VideoStream from './components/VideoStream';
 import PageBox from './layout/PageBox';
@@ -9,12 +9,21 @@ import AddFeedbackForm from './components/AddFeedbackForm';
 
 import './App.css';
 
+const DEFAULT_EVENT_ID = 'xwFMtkbumxM';
+
 function App() {
   const initialFeedbackList = [];
-  const eventId = 'WUWz6xmSzbk';
 
   const [feedbackList, setFeedbackList] = useState(initialFeedbackList);
   const [feedbackFormVisible, setFeedbackFormVisible] = useState(false);
+  const [eventId, setEventId] = useState(DEFAULT_EVENT_ID);
+
+  useEffect(() => {
+    const pathEventId = window.location.pathname.replace('/', '');
+    if (pathEventId) {
+      setEventId(pathEventId);
+    }
+  }, []);
 
   function addFeedback(feedbackInput) {
     const now = new Date();

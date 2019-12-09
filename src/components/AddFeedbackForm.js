@@ -19,6 +19,7 @@ export default function AddFeedbackForm({
   const [text, setText] = useState(initialValues.text || '');
 
   const NAME_STORAGE_KEY = 'author_name';
+
   useEffect(() => {
     const name = localStorage.getItem(NAME_STORAGE_KEY);
     if (name) {
